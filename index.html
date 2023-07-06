@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="IMG/claire de lune.png" type="image/x-icon">
+    <title>Claire de lune</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="CSS/styles.css" rel="stylesheet">
+    <script defer src="JS/index.js"></script>
+</head>
+<body>
+
+
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        <a href="#" class="logo">Claire de lune <span>.</span></a>
+        <nav class="nav">
+            <a href="#inicio">inicio</a>
+            <a href="#productos">productos</a>
+            <a href="#contactanos">contáctanos</a>
+        </nav>
+            <div class="iconos"> 
+            <a href="#" class="fas fa-search" id="search"></a>
+            <a href="#" class="fas fa-heart" id="favoritos"></a> 
+            <a href="#" class="fas fa-shopping-cart" id="verCarrito"></a>
+            </div>
+
+    </header>
+
+
+    <section class="inicio" id="inicio">
+        <div class="contenido">
+            <h3>NEW IN</h3>
+                <a href="#productos" class="btn">shop now</a>
+        </div>
+    </section>
+    <section class="contenedor-iconos">
+        <div class="iconos">
+            <img src="img/whatsapp.ico" alt="">
+            <div class="info">
+                <h3>Dudas o consultas</h3>
+                <span>mandanos un mensajito al +5491148597602</span>
+            </div>
+        </div>
+        <div class="iconos">
+            <img src="img/tarjeta.ico" alt="">
+            <div class="info">
+                <h3>Descuentos</h3>
+                <span> 10% OFF abonando con transferencia bancaria</span>
+            </div>
+        </div>
+        <div class="iconos">
+            <img src="img/arrow.ico" alt="">
+            <div class="info">
+                <h3>Cambios</h3>
+                <span>Podes realizar cambios hasta 30 días hábiles</span>
+            </div>
+        </div>
+        <div class="iconos">
+            <img src="img/house.ico" alt="">
+            <div class="info">
+                <h3>Sucursal</h3>
+                <span>Encontranos en Capital Federal</span>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="productos" id="productos">
+        <h1 class="titulo"> Nuevos <span>Ingresos</span></h1>
+        <div class="caja-contenedora" id="caja-contenedora">
+        </div>
+    </section>
+
+    <section class="busqueda" id="busqueda">
+        <div class="busqueda" id="busqueda">
+            <h1>Buscar Producto</h1>
+            <input type="text" id="formulario" name ="formulario" placeholder="Buscar producto">
+            <button type="submit" id="buscar" value="enviar">🔍</button>
+        </div>
+    </section>
+   
+
+    <section class="carrito-contenido" id="carrito-contenido"></section>
+
+    <section class="favoritos-contenido" id="favoritos-contenido"></section>
+
+    <section class="footer">
+        <div class="caja-contenido">
+
+            <div class="caja">
+                <h3>Links</h3>
+                <a href="#inicio">Inicio</a>
+                <a href="#productos">Productos</a>
+                <a href="#carrito-contenido">Carrito</a>
+            </div>
+
+            <div class="caja" id="contactanos">
+                <h3>Contacto</h3>
+                <a href="#">+5491148597602</a>
+                <a href="#">clairedelune@gmail.com</a>
+                <a href="#">Capital Federal</a>
+                <img src="img/american-express.ico" alt="">
+                <img src="img/visa.ico" alt="">
+                <img src="img/pay-pal.ico" alt="">
+                <img src="img/master-card.ico" alt="">
+            </div>
+
+            <div class="credito"> </div>
+        </div>
+    </section>
+
