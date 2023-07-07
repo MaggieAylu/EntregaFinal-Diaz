@@ -65,11 +65,7 @@ const buscarProducto = () =>{
         for(let producto of productos){
             let nombre = producto.nombre.toLowerCase()
             if(nombre.indexOf(texto) != -1){
-                cargarProductos(nombre)
-                // contenidoProductos.innerHTML = `
-                // <img src="${producto.img}"
-                // <h3>${producto.nombre}</h3>
-                // <p>$${producto.precio}</p>`
+                buscarLosProd(productos)
             }
     
         }
@@ -80,6 +76,21 @@ const buscarProducto = () =>{
     })
 
 }
+
+const buscados = document.getElementsByClassName('card')
+
+const buscarLosProd = (productos) =>{
+    productos.forEach((prod) =>{
+        buscados.innerHTML = `
+        <img src="${prod.imagen}">
+        <h3 class="contenido">${prod.nombre}</h3>
+        <p class="contenido" id="precio">$${prod.precio}</p>
+        <button id="boton${prod.id}" class="cart-btn">Comprar</button>
+        <button id="heart${prod.id}" class="fas fa-heart"></button>
+        `
+})
+}
+
 buscar.addEventListener('click', ()=> buscarProducto())
 
 const verCarrito = document.getElementById('verCarrito')
@@ -120,6 +131,9 @@ verFavoritos.addEventListener('click', () =>{
     })
 })
 
+
+
+const eliminar = document.getElementsByClassName("eliminar")
 // hacer un boton para eliminar cosas del carrito/favoritos y agregar cantidad de una prenda en carrito
 
 verCarrito.addEventListener('click', () =>{
@@ -162,10 +176,19 @@ verCarrito.addEventListener('click', () =>{
 
         
         carritoContenido.appendChild(contenido)
+        
+        eliminar.addEventListener('click', () =>{
+            const id = carrito.find((producto) => producto.id === id)
+            if (id !== undefined){
+            carrito.splice(id, 1)
+            }
+        })
     })
 
-    const eliminar = document.getElementById(`eliminar${prod.id}`)
-    eliminar.addEventListener('click', eliminarProducto)
+    // const eliminar = document.getElementById(`eliminar${prod.id}`)
+    // eliminar.addEventListener('click', eliminarProducto)
+
+  
 
    const total = carrito.reduce((acc, el) => acc + el.precio, 0)
    const totalPagar = document.createElement('div')
