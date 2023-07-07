@@ -10,7 +10,6 @@ const productos = [
     {id:9, imagen: '/IMG/biker.jpg', nombre: "Biker", precio: 6375},
 ]
 
-const buscador = []
 
 const contenidoProductos = document.getElementById('caja-contenedora')
 // (input formulario)
@@ -18,75 +17,13 @@ const formulario = document.querySelector('#formulario')
 // (boton para filtrar busqueda)
 const buscar = document.querySelector('#buscar')
 // (boton lupa)
-const buscarProd = document.getElementById('search')
-
-const filtrar = () =>{
-    console.log(formulario.value)
-}
-buscar.addEventListener('submit', filtrar())
+const buscador = document.getElementById('buscador')
+const lupa = document.querySelector('#lupa')
 
 
-// const buscarProductos = () =>{
-//     let buscar = productos.filter((producto) => producto.nombre.includes(inputSearch.value.trim()))
-//     if(buscar.length > 0){
-//         let contenido = document.createElement('div')
-//         contenido.className = "card"
-//         contenido.innerHTML = `
-//         <img src="${prod.img}"
-//         <h3>${prod.nombre}</h3>
-//         <p>$${prod.precio}</p>`
 
-//         busqueda.appendChild(contenido)
-//     }
-// }
-
-// const input = document.getElementById("inputSearch")
-
-
-// buscar.addEventListener('click', () =>{
-//     busqueda.classList.add('abrir')
-
-//     input.addEventListener('input', () =>{
-//         let resultado = input.value.toLowerCase()
-
-//         productos.forEach((producto) =>{
-//             let nombre = producto.querySelector('.nombre').textContent.toLowerCase()
-
-//             if(nombre.includes(resultado)){
-//                 producto.style.display = 'block'
-//             } else{
-//                 producto.style.display = 'none'
-//             }
-//         })
-//     })
-
-
-    // busqueda.innerHTML = ``
-    // let contenido = document.createElement('div')
-    // className = "Search"
-    // contenido.innerHTML = `
-    // <input type="search" id="inputSearch placeholder="Buscar producto">
-    // `
-
-    // busqueda.appendChild(contenido)
-
-    // formBusqueda.addEventListener('input', () =>{
-    //     let buscarProducto = productos.filter((producto) => producto.nombre.includes(inputSearch.value.trim()))
-    //     if(buscarProducto.length > 0){
-    //     let contenido = document.createElement('div')
-    //     contenido.className = "card"
-    //     contenido.innerHTML = `
-    //     <img src="${prod.img}"
-    //     <h3>${prod.nombre}</h3>
-    //     <p>$${prod.precio}</p>`
-
-    //     busqueda.appendChild(contenido)
-    // }
-    // })
-
-// })
-
-productos.forEach((prod) =>{
+const cargarProductos = ()=>{
+    productos.forEach((prod) =>{
     let contenido = document.createElement('div')
     contenido.className = "card"
     contenido.innerHTML = `
@@ -96,8 +33,8 @@ productos.forEach((prod) =>{
     <button id="boton${prod.id}" class="cart-btn">Comprar</button>
     <button id="heart${prod.id}" class="fas fa-heart"></button>
     `
-
     contenidoProductos.appendChild(contenido)
+
     const fav = document.getElementById(`heart${prod.id}`)
     fav.addEventListener('click', () =>{
         favoritos.push({
@@ -117,6 +54,33 @@ productos.forEach((prod) =>{
         })
     })
 })
+}
+
+cargarProductos()
+
+const buscarProducto = () =>{
+    lupa.addEventListener('click', ()=>{
+        buscador.style.display('flex')
+        const texto = formulario.value.toLowerCase()
+        for(let producto of productos){
+            let nombre = producto.nombre.toLowerCase()
+            if(nombre.indexOf(texto) != -1){
+                cargarProductos(nombre)
+                // contenidoProductos.innerHTML = `
+                // <img src="${producto.img}"
+                // <h3>${producto.nombre}</h3>
+                // <p>$${producto.precio}</p>`
+            }
+    
+        }
+        if(contenidoProductos.innerHTML === ''){
+            contenidoProductos.innerHTML +=`
+            <h1>Producto no encontrado...</h1>`    
+        }
+    })
+
+}
+buscar.addEventListener('click', ()=> buscarProducto())
 
 const verCarrito = document.getElementById('verCarrito')
 const carritoContenido = document.getElementById('carrito-contenido')
