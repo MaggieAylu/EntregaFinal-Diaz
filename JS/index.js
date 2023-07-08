@@ -81,19 +81,19 @@ const buscarProducto = () =>{
 buscar.addEventListener('click', () => buscarProducto)
 
 
-const buscarLosProd = (productos) =>{
-    productos.forEach((prod) =>{
-        buscados.innerHTML = `
-        <img src="${prod.imagen}">
-        <h3 class="contenido">${prod.nombre}</h3>
-        <p class="contenido" id="precio">$${prod.precio}</p>
-        <button id="boton${prod.id}" class="cart-btn">Comprar</button>
-        <button id="heart${prod.id}" class="fas fa-heart"></button>
-        `
-})
-}
+// const buscarLosProd = (productos) =>{
+//     productos.forEach((prod) =>{
+//         buscados.innerHTML = `
+//         <img src="${prod.imagen}">
+//         <h3 class="contenido">${prod.nombre}</h3>
+//         <p class="contenido" id="precio">$${prod.precio}</p>
+//         <button id="boton${prod.id}" class="cart-btn">Comprar</button>
+//         <button id="heart${prod.id}" class="fas fa-heart"></button>
+//         `
+// })
+// }
 
-buscar.addEventListener('click', ()=> buscarProducto())
+// buscar.addEventListener('click', ()=> buscarProducto())
 
 const verCarrito = document.getElementById('verCarrito')
 const carritoContenido = document.getElementById('carrito-contenido')

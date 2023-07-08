@@ -454,7 +454,7 @@ header .fa-bars{
 .eliminar:hover{
     background: var(--pink);
 }
-f-orm {
+/* f-orm {
     display: block;
     margin-top: 0em;
 }
@@ -491,7 +491,7 @@ buscar{
     padding: 0;
     width: 45px;
     position: fixed;
-}
+} */
 
 
 
