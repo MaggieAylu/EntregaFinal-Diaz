@@ -33,19 +33,9 @@ const cargarProductos = ()=>{
     <h3 class="contenido">${prod.nombre}</h3>
     <p class="contenido" id="precio">$${prod.precio}</p>
     <button id="boton${prod.id}" class="cart-btn">Comprar</button>
-    <button id="heart${prod.id}" class="fas fa-heart"></button>
     `
     contenidoProductos.appendChild(contenido)
 
-    const fav = document.getElementById(`heart${prod.id}`)
-    fav.addEventListener('click', () =>{
-        favoritos.push({
-            id : prod.id,
-            img: prod.imagen,
-            nombre: prod.nombre,
-            precio: prod.precio,
-        })
-    })
     const boton = document.getElementById(`boton${prod.id}`)
     boton.addEventListener('click', () =>{
         carrito.push({
@@ -67,7 +57,10 @@ const buscarProducto = () =>{
             let nombre = producto.nombre.toLowerCase()
             if(nombre.indexOf(texto) !== -1){
                 resultado.innerHTML +=`
-                <li>${producto.nombre}</li>`
+                <img src="${producto.imagen}">
+                <h3 class="contenido">${producto.nombre}</h3>
+                <p class="contenido" id="precio">$${producto.precio}</p>
+                <button id="boton${producto.id}" class="cart-btn">Comprar</button>`
             }
     
         }
@@ -78,62 +71,11 @@ const buscarProducto = () =>{
 
 }
 
-buscar.addEventListener('click', () => buscarProducto)
+buscar.addEventListener('click', () => {buscarProducto()})
 
-
-// const buscarLosProd = (productos) =>{
-//     productos.forEach((prod) =>{
-//         buscados.innerHTML = `
-//         <img src="${prod.imagen}">
-//         <h3 class="contenido">${prod.nombre}</h3>
-//         <p class="contenido" id="precio">$${prod.precio}</p>
-//         <button id="boton${prod.id}" class="cart-btn">Comprar</button>
-//         <button id="heart${prod.id}" class="fas fa-heart"></button>
-//         `
-// })
-// }
-
-// buscar.addEventListener('click', ()=> buscarProducto())
 
 const verCarrito = document.getElementById('verCarrito')
 const carritoContenido = document.getElementById('carrito-contenido')
-const verFavoritos = document.getElementById('favoritos')
-const favoritosContenido = document.getElementById('favoritos-contenido')
-
-
-verFavoritos.addEventListener('click', () =>{
-    favoritosContenido.innerHTML = ''
-    favoritosContenido.classList.add('abrir')
-    const tusFavoritos = document.createElement('div')
-    tusFavoritos.className = 'ver-favoritos'
-    tusFavoritos.innerHTML = `
-    <h1 class="titulo">Tus favoritos</h1>`
-    favoritosContenido.append(tusFavoritos)
-
-    const boton = document.createElement('h1')
-    boton.innerHTML = 'X'
-    boton.className = 'cerrar'
-    boton.addEventListener('click', () =>{
-        favoritosContenido.classList.add('ocultar')
-    })
-    tusFavoritos.appendChild(boton)
-    favoritosContenido.classList.remove('ocultar')
-
-    favoritos.forEach((prod) => {
-        let contenido = document.createElement('div')
-        contenido.className = 'contenido-de-favoritos'
-        contenido.innerHTML = `
-        <img src="${prod.img}"
-        <h3>${prod.nombre}</h3>
-        <p>$${prod.precio}</p>
-        <button id="eliminar${prod.id} class="eliminar">Eliminar</button>`
-
-        favoritosContenido.appendChild(contenido)
-
-    })
-})
-
-
 
 const eliminar = document.getElementsByClassName("eliminar")
 // hacer un boton para eliminar cosas del carrito/favoritos y agregar cantidad de una prenda en carrito
@@ -147,16 +89,6 @@ verCarrito.addEventListener('click', () =>{
     <h1 class="titulo">Tu Carrito.</h1>
     `
     carritoContenido.appendChild(tuCarrito)
-
-    // const eliminar = document.createElement('span')
-    // eliminar.innerHTML = `eliminar${prod.id}`
-    // eliminar.className = 'eliminar'
-    // eliminar.addEventListener('click', () =>{
-    //     const id = carrito.find((producto) => producto.id === id)
-    //     if (id !== undefined){
-    //         carrito.splice(id, 1)
-    //     }
-    // })
 
     const boton = document.createElement('h1')
     boton.innerText = 'X'
@@ -174,23 +106,20 @@ verCarrito.addEventListener('click', () =>{
         <img src="${prod.img}"
         <h3>${prod.nombre}</h3>
         <p>$${prod.precio}</p>
-        <button id="eliminar${prod.id} class="eliminar">Eliminar</button>`
+        <button id="eliminar${prod.id}" class="eliminar">Eliminar</button>`
 
         
         carritoContenido.appendChild(contenido)
-        
+    })
+
+    const eliminar = document.getElementById(`eliminar${prod.id}`)
+
+    carrito.forEach((prod) => {
         eliminar.addEventListener('click', () =>{
-            const id = carrito.find((producto) => producto.id === id)
-            if (id !== undefined){
-            carrito.splice(id, 1)
-            }
+            eliminarProducto(prod)
         })
     })
 
-    // const eliminar = document.getElementById(`eliminar${prod.id}`)
-    // eliminar.addEventListener('click', eliminarProducto)
-
-  
 
    const total = carrito.reduce((acc, el) => acc + el.precio, 0)
    const totalPagar = document.createElement('div')
@@ -258,4 +187,3 @@ const eliminarProducto = () =>{
 
 
 const carrito = recuperarDatos()
-const favoritos = []
