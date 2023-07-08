@@ -20,6 +20,8 @@ const buscar = document.querySelector('#buscar')
 const buscador = document.getElementById('buscador')
 const lupa = document.querySelector('#lupa')
 
+const resultado = document.querySelector('#resultado')
+
 
 
 const cargarProductos = ()=>{
@@ -59,13 +61,13 @@ const cargarProductos = ()=>{
 cargarProductos()
 
 const buscarProducto = () =>{
-    lupa.addEventListener('click', ()=>{
-        buscador.style.display('flex')
+    console.log(formulario.value)
         const texto = formulario.value.toLowerCase()
         for(let producto of productos){
             let nombre = producto.nombre.toLowerCase()
-            if(nombre.indexOf(texto) != -1){
-                buscarLosProd(productos)
+            if(nombre.indexOf(texto) !== -1){
+                resultado.innerHTML +=`
+                <li>${producto.nombre}</li>`
             }
     
         }
@@ -73,11 +75,11 @@ const buscarProducto = () =>{
             contenidoProductos.innerHTML +=`
             <h1>Producto no encontrado...</h1>`    
         }
-    })
 
 }
 
-const buscados = document.getElementsByClassName('card')
+buscar.addEventListener('click', () => buscarProducto)
+
 
 const buscarLosProd = (productos) =>{
     productos.forEach((prod) =>{
