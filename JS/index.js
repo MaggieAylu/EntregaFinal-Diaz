@@ -101,7 +101,7 @@ const eliminarDelCarrito = (id) => {
         setTimeout(()=>{
             carritoContenido.classList.add('ocultar')
             Swal.fire({
-                title: 'Producto elimando',
+                title: 'Producto eliminado',
                 text: 'Su producto fue eliminado con exito',
                 icon: 'success',
                 confirmButtonText: 'Cerrar'
@@ -113,8 +113,8 @@ const eliminarDelCarrito = (id) => {
         setTimeout(()=>{
             carritoContenido.classList.add('ocultar')
             Swal.fire({
-                title: 'Eliminado',
-                text: 'Su carrito esta vacío',
+                title: 'Producto eliminado',
+                text: 'Su producto fue eliminado con exito',
                 icon: 'success',
                 confirmButtonText: 'Cerrar'
             })
