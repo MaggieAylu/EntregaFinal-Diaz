@@ -1,0 +1,65 @@
+[
+        {
+            "id":1,
+            "imagen": "/IMG/blazer.jpg",
+            "nombre": "Blazer",
+            "precio": 17000,
+            "cantidad": 1
+        },
+        {
+            "id":2,
+            "imagen": "/IMG/polera.jpg", 
+            "nombre": "Polera Negra", 
+            "precio": 8075,
+            "cantidad": 1
+        },
+        {
+            "id":3,
+            "imagen": "/IMG/jean-wide-leg.jpg", 
+            "nombre": "Denim Wide Leg", 
+            "precio": 15300,
+            "cantidad": 1
+        },
+        {
+            "id":4, 
+            "imagen": "/IMG/Vestido-lunar-negro.jpg", 
+            "nombre": "Vestido Retro", 
+            "precio": 9350,
+            "cantidad": 1
+        },
+        {
+            "id":5, 
+            "imagen": "/IMG/chaleco-puffer.jpg", 
+            "nombre": "Chaleco Puffer", 
+            "precio": 17850,
+            "cantidad": 1
+        },
+        {
+            "id":6, 
+            "imagen": "/IMG/remera.jpg", 
+            "nombre": "Remera musculosa", 
+            "precio": 5950,
+            "cantidad": 1
+        },
+        {
+            "id":7, 
+            "imagen": "/IMG/short-pollera.jpg", 
+            "nombre": "Short pollera negro", 
+            "precio": 14025,
+            "cantidad": 1
+        },
+        {
+            "id":8, 
+            "imagen": "/IMG/buzo.jpeg", 
+            "nombre": "Buzo", 
+            "precio": 15725,
+            "cantidad": 1
+        },
+        {
+            "id":9, 
+            "imagen": "/IMG/biker.jpg", 
+            "nombre": "Biker", 
+            "precio": 6375,
+            "cantidad": 1
+        }
+]
